@@ -18,7 +18,7 @@ define Package/fpgatools/Default
 	SECTION:=utils
 	CATEGORY:=Utilities
 	TITLE:=fpgatools
-	DEPENDS:=+libusb-compat +libftdi
+	DEPENDS:=+libusb-compat +libftdi1
 endef
 
 define Package/fpgatools/description

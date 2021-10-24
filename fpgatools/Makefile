@@ -25,9 +25,11 @@ define Package/fpgatools/description
 fpgatools is a toolchain to program field-programmable gate arrays (FPGAs)
 endef
 
-TARGET_LDFLAGS += -L$(STAGING_DIR)/usr/lib
+TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include/libftdi1
+TARGET_LDFLAGS += 
 
 define Build/Compile
+	$(CP)	libftdi.pc		$(STAGING_DIR)/usr/lib/pkgconfig
 	$(call Build/Compile/fpgatools, fp2bit, bit2fp)
 	$(MAKE_VARS) $(MAKE) -C $(PKG_BUILD_DIR)/mini-jtag $(MAKE_FLAGS) \
 	DESTDIR="$(PKG_INSTALL_DIR)" \
